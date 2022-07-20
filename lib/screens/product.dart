@@ -55,7 +55,7 @@ class _ProductState extends State<Product> {
                               elevation: 25,
                               child: Column(
                                 children: [
-                                  Text("${products.data[index].name}")
+                                  Text("${products.data[index].name}"),
                                 ],
                               ),
                             ),

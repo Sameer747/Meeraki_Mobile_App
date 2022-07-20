@@ -6,13 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:meeraki_store/components/bottom_sheet.dart';
 import 'package:meeraki_store/models/feature_details_model.dart';
 import 'package:meeraki_store/screens/cart_screen.dart';
+import 'package:meeraki_store/screens/home_screen.dart';
 import 'package:provider/provider.dart';
-
 import 'package:meeraki_store/config/color_scheme.dart';
 import 'package:meeraki_store/config/helper.dart';
 import 'package:meeraki_store/notifiers/feature_details_notifier.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
+import 'size_chart.dart';
 
 class FeatureProductDetails extends StatefulWidget {
   var name;
@@ -32,6 +34,7 @@ class _FeatureProductDetailsState extends State<FeatureProductDetails> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     bool isSelected = false;
     MaterialStateProperty getColor(Color color, Color colorPressed) {
@@ -59,6 +62,7 @@ class _FeatureProductDetailsState extends State<FeatureProductDetails> {
             FeatureDetails dat =
                 context.read<FeatureDetailsNotifier>().getData();
             return Scaffold(
+                resizeToAvoidBottomInset: false,
                 appBar: AppBar(
                   backgroundColor: kPrimaryLightColor,
                   title: Text("${widget.name}"),
@@ -208,56 +212,67 @@ class _FeatureProductDetailsState extends State<FeatureProductDetails> {
                           const SizedBox(
                             height: 5,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(right: 150),
-                                child: Text(
-                                  "${dat.data[index].name}",
-                                  style: const TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
+                          Padding(
+                            padding: EdgeInsets.only(left: 5, right: 5),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                // /  child:
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "${dat.data[index].name}",
+                                    style: const TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
-                              ),
-                              dat.data[index].currentStock == null
-                                  ? Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                          height: 35,
-                                          width: 100,
-                                          decoration: BoxDecoration(
-                                              color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(30)),
-                                          child: Center(
-                                            child: Text(
-                                              "Out of Stock",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          )),
-                                    )
-                                  : Container(
-                                      height: 35,
-                                      width: 70,
-                                      decoration: BoxDecoration(
-                                          color: Colors.green,
-                                          borderRadius:
-                                              BorderRadius.circular(30)),
-                                      child: Center(
-                                        child: Expanded(
-                                          flex: 2,
-                                          child: Text(
-                                            "In Stock",
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ),
-                                      ))
-                            ],
+                                // ),
+                                dat.data[index].currentStock == null
+                                    ? Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Container(
+                                            height: 35,
+                                            width: 100,
+                                            decoration: BoxDecoration(
+                                                color: Colors.red,
+                                                borderRadius:
+                                                    BorderRadius.circular(30)),
+                                            child: Center(
+                                              child: Text(
+                                                "Out of Stock",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                            )),
+                                      )
+                                    : Align(
+                                        alignment: Alignment.centerRight,
+                                        child: Container(
+                                            height: 35,
+                                            width: 70,
+                                            decoration: BoxDecoration(
+                                                color: Color.fromARGB(
+                                                    255, 36, 166, 41),
+                                                borderRadius:
+                                                    BorderRadius.circular(30)),
+                                            child: Center(
+                                              child: Expanded(
+                                                flex: 2,
+                                                child: Text(
+                                                  "In Stock",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                            )),
+                                      )
+                              ],
+                            ),
                           ),
                           SizedBox(
                             height: 10,
@@ -399,12 +414,43 @@ class _FeatureProductDetailsState extends State<FeatureProductDetails> {
                           const SizedBox(height: 10),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                                child: Text(
-                              "${dat.data[index].choiceOptions[index].title}",
-                              style: const TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.bold),
-                            )),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                    child: Text(
+                                  "${dat.data[index].choiceOptions[index].title}",
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                                GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  Size_Chart()));
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10))),
+                                      height: 40,
+                                      width: 100,
+                                      child: Center(
+                                        child: Text(
+                                          'Size Chart',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 12,
+                                              color: Colors.white),
+                                        ),
+                                      ),
+                                    ))
+                              ],
+                            ),
                           ),
                           const SizedBox(
                             height: 10,

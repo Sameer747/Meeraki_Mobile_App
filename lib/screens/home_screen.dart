@@ -703,16 +703,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Row(
                           //  crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                                height: 200,
-                                width: 130,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                  fit: BoxFit.fill,
-                                  image: NetworkImage(
-                                    "${Helper.baseUrl2 + Helper.public + img.data[0].photo}",
-                                  ),
-                                ))),
+                            Expanded(
+                              flex: 2,
+                              child: Container(
+                                  height: 200,
+                                  width: 130,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: NetworkImage(
+                                      "${Helper.baseUrl2 + Helper.public + img.data[0].photo}",
+                                    ),
+                                  ))),
+                            ),
                             Container(
                                 height: 200,
                                 width: 130,
@@ -1066,6 +1069,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                 ),
               ),
+              SizedBox(
+                height: 10,
+              )
             ],
           ),
         ),

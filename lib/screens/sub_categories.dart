@@ -81,23 +81,26 @@ class _SubCategoriesState extends State<SubCategories> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              cat.data[index].banner == ""
-                                  ? const Padding(
-                                      padding: EdgeInsets.only(top: 80),
-                                      child: Center(
-                                        child: Text("NO IMAGE"),
-                                      ),
-                                    )
-                                  : Container(
-                                      height: 170,
-                                      width: width,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image: NetworkImage(
-                                          "${Helper.baseUrl2 + Helper.public + cat.data[index].banner}",
+                              Expanded(
+                                flex: 2,
+                                child: cat.data[index].banner == ""
+                                    ? const Padding(
+                                        padding: EdgeInsets.only(top: 80),
+                                        child: Center(
+                                          child: Text("NO IMAGE"),
                                         ),
-                                      ))),
+                                      )
+                                    : Container(
+                                        height: 170,
+                                        width: width,
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                          fit: BoxFit.fill,
+                                          image: NetworkImage(
+                                            "${Helper.baseUrl2 + Helper.public + cat.data[index].banner}",
+                                          ),
+                                        ))),
+                              ),
                               Container(
                                 margin: const EdgeInsets.only(bottom: 10),
                                 child: Text(
