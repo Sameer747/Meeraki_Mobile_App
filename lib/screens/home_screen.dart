@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_file_preview/flutter_file_preview.dart';
 import 'package:meeraki_store/config/color_scheme.dart';
 import 'package:meeraki_store/config/helper.dart';
 import 'package:meeraki_store/models/slider_provider.dart';
@@ -16,6 +17,7 @@ import 'package:meeraki_store/screens/blogs.dart';
 import 'package:meeraki_store/screens/cart_screen.dart';
 import 'package:meeraki_store/screens/feature_product_detail.dart';
 import 'package:meeraki_store/screens/ReadyToWear.dart';
+import 'package:meeraki_store/screens/pdf_view.dart';
 import 'package:meeraki_store/screens/product.dart';
 import 'package:meeraki_store/screens/static_screens/about_us.dart';
 import 'package:meeraki_store/screens/static_screens/add_address.dart';
@@ -211,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const TawkChat()));
+                              builder: (context) => const pdf()));
                         },
                         child: const Text(
                           "Summer Collection",
@@ -240,8 +242,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
+                          // FlutterFilePreview.openFile(
+                          //     "https://meeraki.com/public/uploads/uiimages/Catalogue.pdf",
+                          //     title: 'Size Chart');
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const TawkChat()));
+                              builder: (context) => const pdf()));
                         },
                         child: const Text(
                           "Spring Collection",
