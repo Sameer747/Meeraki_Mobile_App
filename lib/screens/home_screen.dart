@@ -2,11 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_file_preview/flutter_file_preview.dart';
 import 'package:meeraki_store/config/color_scheme.dart';
 import 'package:meeraki_store/config/helper.dart';
 import 'package:meeraki_store/models/slider_provider.dart';
-import 'package:meeraki_store/models/sub_category_model.dart';
+// import 'package:meeraki_store/models/sub_category_model.dart';
 import 'package:meeraki_store/notifiers/banners_provider.dart';
 import 'package:meeraki_store/notifiers/categories_provider.dart';
 import 'package:meeraki_store/notifiers/feature_provider.dart';
@@ -20,7 +19,7 @@ import 'package:meeraki_store/screens/ReadyToWear.dart';
 import 'package:meeraki_store/screens/pdf_view.dart';
 import 'package:meeraki_store/screens/product.dart';
 import 'package:meeraki_store/screens/static_screens/about_us.dart';
-import 'package:meeraki_store/screens/static_screens/add_address.dart';
+// import 'package:meeraki_store/screens/static_screens/add_address.dart';
 import 'package:meeraki_store/screens/static_screens/delivery_policy.dart';
 import 'package:meeraki_store/screens/static_screens/faqs.dart';
 import 'package:meeraki_store/screens/static_screens/privacy_policy.dart';
@@ -102,531 +101,538 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        drawer: Drawer(
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.white, kPrimaryColor],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
+        drawer: Container(
+          width: 320,
+          child: Drawer(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.white, kPrimaryColor],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
               ),
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    width: width,
-                    height: width * 0.15,
-                    child: Center(
-                      child: Image.asset("assets/logo.png"),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  //eid festival collection
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/eid_festive_icon.png")),
+                    Container(
+                      width: width,
+                      height: width * 0.15,
+                      child: Center(
+                        child: Image.asset("assets/logo.png"),
                       ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const TawkChat()));
-                        },
-                        child: const Text(
-                          "Eid Festival Collection",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    //eid festival collection
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child:
+                                  Image.asset("assets/eid_festive_icon.png")),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  //Ready to Wear
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child:
-                                Image.asset("assets/ready_to_wear_icon.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // Navigator.of(context).push(MaterialPageRoute(builder: (context) => SubCategories(this.link, this.name)));
-                          // //     builder: (context) => ReadyToWear()));
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => ReadyToWear()));
-                          // Navigator.of(context).push(MaterialPageRoute(
-                          //   builder: (context) =>
-                          //       SubCategories(this.lnk, this.nam),
-                          // ));
-                        },
-                        child: const Text(
-                          "Ready to Wear",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                        SizedBox(
+                          width: 25,
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  //Summer Collection
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/summer collection.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const pdf()));
-                        },
-                        child: const Text(
-                          "Summer Collection",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  //Spring Collection
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/spring collection.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          // FlutterFilePreview.openFile(
-                          //     "https://meeraki.com/public/uploads/uiimages/Catalogue.pdf",
-                          //     title: 'Size Chart');
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const pdf()));
-                        },
-                        child: const Text(
-                          "Spring Collection",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  //chat
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/chat.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const TawkChat()));
-                        },
-                        child: const Text(
-                          "Chat",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/contacts.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const PrivacyPolicy()));
-                        },
-                        child: Text("Privacy Policy",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold)),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/blog.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => Blogs()));
-                        },
-                        child: Text(
-                          "Blogs",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/delivery.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
+                        GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => DeliveryPolicy()));
+                                builder: (context) => const TawkChat()));
                           },
-                          child: Text("Delivery Policy",
+                          child: const Text(
+                            "Eid Festival Collection",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    //Ready to Wear
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child:
+                                  Image.asset("assets/ready_to_wear_icon.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            // Navigator.of(context).push(MaterialPageRoute(builder: (context) => SubCategories(this.link, this.name)));
+                            // //     builder: (context) => ReadyToWear()));
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ReadyToWear()));
+                            // Navigator.of(context).push(MaterialPageRoute(
+                            //   builder: (context) =>
+                            //       SubCategories(this.lnk, this.nam),
+                            // ));
+                          },
+                          child: const Text(
+                            "Ready to Wear",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    //Summer Collection
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child:
+                                  Image.asset("assets/summer collection.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const pdf()));
+                          },
+                          child: const Text(
+                            "Summer Collection",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    //Spring Collection
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child:
+                                  Image.asset("assets/spring collection.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            // FlutterFilePreview.openFile(
+                            //     "https://meeraki.com/public/uploads/uiimages/Catalogue.pdf",
+                            //     title: 'Size Chart');
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const pdf()));
+                          },
+                          child: const Text(
+                            "Spring Collection",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    //chat
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/chat.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const TawkChat()));
+                          },
+                          child: const Text(
+                            "Chat",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/contacts.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const PrivacyPolicy()));
+                          },
+                          child: Text("Privacy Policy",
                               style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold))),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/return.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ReturnPolicy()));
-                          },
-                          child: Text(
-                            "Return Policy",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          )),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/contract.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => TermsConditions()));
-                          },
-                          child: Text(
-                            "Terms & Conditions",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          )),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/user.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => AboutUs()));
-                          },
-                          child: Text(
-                            "About Us",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          )),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/faq.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => FAQS()));
-                          },
-                          child: Text(
-                            "FAQS",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          )),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/call.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => ContactUs()));
-                          },
-                          child: Text(
-                            "Contact Us",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          )),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  //login/logout
-                  // Row(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: [
-                  //     Padding(
-                  //       padding: const EdgeInsetsDirectional.only(start: 25),
-                  //       child: Container(
-                  //           height: 25,
-                  //           width: 30,
-                  //           child: Image.asset("assets/chat.png")),
-                  //     ),
-                  //     SizedBox(
-                  //       width: 25,
-                  //     ),
-                  //     GestureDetector(
-                  //       //onTap: () {
-                  //       // Navigator.of(context).push(MaterialPageRoute(
-                  //       //    builder: (context) => const TawkChat()));
-                  //       //},
-                  //       child: Text(
-                  //         "Login/logout",
-                  //         style: TextStyle(
-                  //             fontSize: 18, fontWeight: FontWeight.bold),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-                  // SizedBox(
-                  //   height: 15,
-                  // ),
-                  //Order History
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/order history.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const TawkChat()));
-                        },
-                        child: const Text(
-                          "Order History",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                                  fontSize: 18, fontWeight: FontWeight.bold)),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  //My WishList
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/whishlist.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const TawkChat()));
-                        },
-                        child: const Text(
-                          "My Wishlist",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/blog.png")),
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  //Track Order
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(start: 25),
-                        child: Container(
-                            height: 25,
-                            width: 30,
-                            child: Image.asset("assets/track order.png")),
-                      ),
-                      SizedBox(
-                        width: 25,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const TawkChat()));
-                        },
-                        child: const Text(
-                          "Track Order",
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                        SizedBox(
+                          width: 25,
                         ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Divider(
-                    thickness: 2,
-                  )
-                ],
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => Blogs()));
+                          },
+                          child: Text(
+                            "Blogs",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/delivery.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => DeliveryPolicy()));
+                            },
+                            child: Text("Delivery Policy",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold))),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/return.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => ReturnPolicy()));
+                            },
+                            child: Text(
+                              "Return Policy",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            )),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/contract.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => TermsConditions()));
+                            },
+                            child: Text(
+                              "Terms & Conditions",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            )),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/user.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => AboutUs()));
+                            },
+                            child: Text(
+                              "About Us",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            )),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/faq.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => FAQS()));
+                            },
+                            child: Text(
+                              "FAQS",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            )),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/call.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => ContactUs()));
+                            },
+                            child: Text(
+                              "Contact Us",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            )),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    //login/logout
+                    // Row(
+                    //   crossAxisAlignment: CrossAxisAlignment.start,
+                    //   children: [
+                    //     Padding(
+                    //       padding: const EdgeInsetsDirectional.only(start: 25),
+                    //       child: Container(
+                    //           height: 25,
+                    //           width: 30,
+                    //           child: Image.asset("assets/chat.png")),
+                    //     ),
+                    //     SizedBox(
+                    //       width: 25,
+                    //     ),
+                    //     GestureDetector(
+                    //       //onTap: () {
+                    //       // Navigator.of(context).push(MaterialPageRoute(
+                    //       //    builder: (context) => const TawkChat()));
+                    //       //},
+                    //       child: Text(
+                    //         "Login/logout",
+                    //         style: TextStyle(
+                    //             fontSize: 18, fontWeight: FontWeight.bold),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                    // SizedBox(
+                    //   height: 15,
+                    // ),
+                    //Order History
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/order history.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const TawkChat()));
+                          },
+                          child: const Text(
+                            "Order History",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    //My WishList
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/whishlist.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const TawkChat()));
+                          },
+                          child: const Text(
+                            "My Wishlist",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    //Track Order
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(start: 25),
+                          child: Container(
+                              height: 25,
+                              width: 30,
+                              child: Image.asset("assets/track order.png")),
+                        ),
+                        SizedBox(
+                          width: 25,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const TawkChat()));
+                          },
+                          child: const Text(
+                            "Track Order",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Divider(
+                      thickness: 2,
+                    )
+                  ],
+                ),
               ),
             ),
           ),
