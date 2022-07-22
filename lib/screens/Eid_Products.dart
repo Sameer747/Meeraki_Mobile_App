@@ -61,79 +61,71 @@ class _EidProductsState extends State<EidProducts> {
                                   feat.data[index].name,
                                   feat.data[index].links.details)));
                         },
-                        child: Container(
-                          height: 1000,
-                          child: Card(
-                            elevation: 20,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  child: Image.network(
-                                    "${Helper.baseUrl2 + Helper.public + feat.data[index].thumbnailImage}",
-                                    fit: BoxFit.fill,
+                        child: Card(
+                          elevation: 20,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                height: 250,
+                                width: width,
+                                alignment: Alignment.center,
+                                child: Image.network(
+                                  "${Helper.baseUrl2 + Helper.public + feat.data[index].thumbnailImage}",
+                                  //height: 300,
+                                  width: 300,
+                                  fit: BoxFit.fill,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.shade300.withOpacity(0.5),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "${feat.data[index].name}",
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "${feat.data[index].basePrice}",
+                                style: const TextStyle(
+                                  decoration: TextDecoration.lineThrough,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                "${feat.data[index].discountPrice}",
+                                style: const TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(
+                                height: 5,
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(
+                                    Icons.star_border_outlined,
+                                    color: Colors.yellow,
+                                    size: 14,
                                   ),
-                                  height: 249,
-                                  width: width,
-                                  // decoration: BoxDecoration(
-                                  //     image: DecorationImage(
-                                  //   fit: BoxFit.contain,
-                                  //   image: NetworkImage(
-                                  //     "${Helper.baseUrl2 + Helper.public + feat.data[index].thumbnailImage}",
-                                  //   ),
-                                  // )
-
-                                  // )
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "${feat.data[index].name}",
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.bold,
+                                  const SizedBox(
+                                    width: 5,
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "${feat.data[index].basePrice}",
-                                  style: const TextStyle(
-                                    decoration: TextDecoration.lineThrough,
-                                    fontSize: 14,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "${feat.data[index].discountPrice}",
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.star_border_outlined,
-                                      color: Colors.yellow,
-                                      size: 14,
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                        "${feat.data[index].rating.toString()}")
-                                  ],
-                                ),
-                              ],
-                            ),
+                                  Text("${feat.data[index].rating.toString()}")
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       );
