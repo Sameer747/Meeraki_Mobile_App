@@ -12,6 +12,7 @@ import 'package:meeraki_store/notifiers/feature_provider.dart';
 import 'package:meeraki_store/notifiers/product_notifier.dart';
 import 'package:meeraki_store/notifiers/sellingNotifier.dart';
 import 'package:meeraki_store/notifiers/sub_categories_notifier.dart';
+import 'package:meeraki_store/screens/Eid_Products.dart';
 import 'package:meeraki_store/screens/blogs.dart';
 import 'package:meeraki_store/screens/cart_screen.dart';
 import 'package:meeraki_store/screens/feature_product_detail.dart';
@@ -148,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const TawkChat()));
+                                builder: (context) => const EidProducts()));
                           },
                           child: const Text(
                             "Eid Festival Collection",

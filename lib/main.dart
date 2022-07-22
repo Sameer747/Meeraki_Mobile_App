@@ -19,6 +19,9 @@ import 'package:meeraki_store/notifiers/userdata_provider.dart';
 import 'package:meeraki_store/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'notifiers/eid_collection_detail_notifier.dart';
+import 'notifiers/eid_collection_provider.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -50,6 +53,8 @@ class MyApp extends StatelessWidget {
             create: (context) => SlidersProvider()),
         ChangeNotifierProvider<FeatureNotifierProvider>(
             create: (context) => FeatureNotifierProvider()),
+        ChangeNotifierProvider<EidNotifierProvider>(
+            create: (context) => EidNotifierProvider()),
         ChangeNotifierProvider<BestNotifier>(
             create: (context) => BestNotifier()),
         ChangeNotifierProvider<CategoriesProvider>(
@@ -60,6 +65,8 @@ class MyApp extends StatelessWidget {
             create: (context) => ProductProvider()),
         ChangeNotifierProvider<FeatureDetailsNotifier>(
             create: (context) => FeatureDetailsNotifier()),
+        ChangeNotifierProvider<EidCollectionDetailsNotifier>(
+            create: (context) => EidCollectionDetailsNotifier()),
         ChangeNotifierProvider<BlogsProvider>(
             create: (context) => BlogsProvider()),
       ],
