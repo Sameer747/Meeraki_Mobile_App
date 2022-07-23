@@ -67,7 +67,9 @@ class _pdfState extends State<pdf> {
             ),
             isLoading
                 ? const Center(
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(
+                      color: Color(0xff64266c),
+                    ),
                   )
                 : Stack(),
           ],

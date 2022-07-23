@@ -56,8 +56,7 @@ class _ProductState extends State<Product> {
                               child: Column(
                                 children: [
                                   Text("${products.data[index].name}"),
-
-                                  // Text("${products.data[index].link}"),
+                                  Text("${products.data[index].link.name}"),
                                 ],
                               ),
                             ),
